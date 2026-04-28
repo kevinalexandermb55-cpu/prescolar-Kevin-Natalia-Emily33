@@ -113,7 +113,6 @@
         .btn-enviar { background: #5fa8d3; color: white; border: none; padding: 10px 30px; border-radius: 20px; cursor: pointer; font-weight: bold; margin-top: 10px; }
 
         footer { background: #5fa8d3; color: white; text-align: center; padding: 30px; margin-top: 40px; }
-
         .whatsapp-btn { 
             position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; 
             width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; 
@@ -124,6 +123,30 @@
 img {
     max-width: 100%;
     height: auto;
+}
+/* --- MEDIA QUERIES PARA RESPONSIVE --- */
+@media (max-width: 768px) {
+    /* Esto hace que los cuadros de Danza, Arte, etc. se pongan uno debajo del otro */
+    .info-boxes {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    /* Hace que cada cuadro ocupe el ancho del celular */
+    .box {
+        width: 90% !important;
+    }
+
+    /* Ajusta el logo para que no se salga de la pantalla */
+    .header img {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    /* Estira el formulario para que sea fácil de tocar */
+    .formulario input, .formulario textarea {
+        width: 100% !important;
+    }
 }
     </style>
 </head>
