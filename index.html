@@ -119,6 +119,54 @@
             width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; 
             justify-content: center; font-size: 30px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
+        /* --- AJUSTES PARA CELULARES --- */
+@media (max-width: 768px) {
+    
+    /* El contenedor azul del menú se vuelve flexible */
+    .menu-container { /* Cambia .menu-container por el nombre de tu clase actual */
+        display: flex;
+        flex-wrap: wrap; 
+        justify-content: center;
+        gap: 10px;
+        width: 90% !important;
+        padding: 15px !important;
+    }
+
+    /* Los botones individuales se ajustan para caber de a dos o tres */
+    .menu-item, .boton-menu { 
+        flex: 1 1 30%; /* Esto permite que se acomoden según el ancho */
+        min-width: 85px;
+        font-size: 13px !important;
+    }
+
+    /* Ajuste de los personajes (Lisa y el librito) */
+    .personajes-img, .lisa-img {
+        max-width: 150px; /* Evita que las imágenes sean gigantes en el cel */
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+
+    /* Título principal "Estrellitas Felices" */
+    h1 {
+        font-size: 28px !important;
+        text-align: center;
+        padding: 0 10px;
+    }
+
+    /* El formulario y secciones de texto */
+    .section, .formulario {
+        width: 95% !important;
+        margin: 10px auto !important;
+        padding: 15px !important;
+    }
+}
+
+/* --- MEJORA DE IMÁGENES GENERAL --- */
+img {
+    max-width: 100%;
+    height: auto;
+}
     </style>
 </head>
 <body>
