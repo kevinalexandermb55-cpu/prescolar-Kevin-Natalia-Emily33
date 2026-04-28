@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrellitas Felices</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Nunito', sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { background: linear-gradient(#7ec3ff, #eaf6ff); min-height: 100vh; }
+
+       .header {
+            text-align: center;
+            background-color: #b3e5fc;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .header img {
+            display: block;
+            margin: 0 auto;
+            width: 90%;
+            max-width: 1000px;
+            height: auto;
+            -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        }
+
+        .navbar-container {
+            background: linear-gradient(to bottom, #4a89c7, #265a8d);
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            width: 95%; /* Ajustado para que no se salga de la pantalla */
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .navbar-nav {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav-item {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 13px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: 0.3s;
+            border-radius: 20px;
+        }
+
+        .nav-item i { color: #ffd700; font-size: 14px; }
+        .nav-item:hover { background: rgba(255, 255, 255, 0.2); }
+
+        .section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px auto;
+            width: 90%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            scroll-margin-top: 20px; /* Para que al scrollear no quede pegado arriba */
+        }
+        
+        .hero { display: flex; justify-content: space-between; flex-wrap: wrap; align-items: center; }
+        .hero img { width: 280px; border-radius: 20px; }
+        .hero-text { max-width: 400px; }
+        .hero-text button { background: #ffd166; border: none; padding: 12px 25px; border-radius: 20px; cursor: pointer; margin-top: 15px; font-weight: bold; }
+
+        .services { text-align: center; }
+        .cards { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 15px;
+            width: 180px;
+            cursor: pointer;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            border: 3px solid #ffd166;
+            transition: transform 0.2s;
+        }
+        .momentos-img { 
+            width: 70%; 
+            max-width: 800px; 
+            display: block; 
+            margin: 20px auto; 
+            border-radius: 20px;
+        }
+
+        .card:hover { transform: translateY(-5px); }
+        .card img { width: 100px; height: 100px; margin-bottom: 20px; }
+
+        .info-boxes { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 30px; }
+        .box { background: #f0f8ff; padding: 15px; border-radius: 15px; width: 150px; text-align: center; border: 1px dashed #5fa8d3; }
+
+        .formulario input, .formulario textarea { width: 100%; max-width: 300px; margin: 8px auto; display: block; padding: 12px; border-radius: 10px; border: 1px solid #ccc; }
+        .btn-enviar { background: #5fa8d3; color: white; border: none; padding: 10px 30px; border-radius: 20px; cursor: pointer; font-weight: bold; margin-top: 10px; }
+
+        footer { background: #5fa8d3; color: white; text-align: center; padding: 30px; margin-top: 40px; }
+
+        .whatsapp-btn { 
+            position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; 
+            width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; 
+            justify-content: center; font-size: 30px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <img src="img/estrellitass.png" 
+         style="display: block; margin: 0 auto; width: 800px; mask-image: radial-gradient(circle, black 70%, transparent 100%); -webkit-mask-image: radial-gradient(circle, black 70%, transparent 100%); opacity: 0.9;" 
+         alt="Estrellitas Felices">
+</header>
+
+<nav class="navbar-container">
+    <div class="navbar-nav">
+        <button class="nav-item" onclick="window.scrollTo(0,0)"><i class="fas fa-home"></i> Inicio</button>
+        <button class="nav-item" onclick="ir('servicios')"><i class="fas fa-star"></i> Servicios</button>
+        <button class="nav-item" onclick="ir('nosotros')"><i class="fas fa-users"></i> Nosotros</button>
+        <button class="nav-item" onclick="ir('momentos')"><i class="fas fa-heart"></i> Momentos</button>
+        <button class="nav-item" onclick="ir('info-importante')"><i class="fas fa-clock"></i> Horario</button>
+        <button class="nav-item" onclick="ir('info-importante')"><i class="fas fa-dollar-sign"></i> Costos</button>
+        <button class="nav-item" onclick="ir('formulario')"><i class="fas fa-edit"></i> Formulario</button>
+        <button class="nav-item" onclick="ir('contacto')"><i class="fas fa-phone"></i> Contacto</button>
+    </div>
+</nav>
+
+<div class="section hero">
+    <div class="hero-text">
+        <h2>Bienvenidos a Estrellitas Felices ⭐</h2>
+        <p>Un lugar donde la magia y el aprendizaje se encuentran. Cuidamos a cada niño como si fuera parte de nuestra familia.</p>
+        <button onclick="ir('formulario')">¡Inscribirse ahora!</button>
+    </div>
+    <img src="img/escuelita.png">
+</div>
+
+<section class="section" id="nosotros">
+    <h2>¿Quiénes Somos? 🌟</h2>
+    <p>Somos Natalia y Emely, dos educadoras apasionadas por el desarrollo infantil. Con más de 2 años de experiencia, hemos creado un espacio seguro y lleno de amor para que los niños crezcan felices y aprendan jugando.</p>
+</section>
+
+<section class="section" id="momentos">
+    <h2>Nuestros Momentos ⭐</h2>
+    <img src="img/momentos.png" class="momentos-img">
+    <div style="margin-top: 15px; text-align: center;">
+        <p>En Estrellitas Felices, cada día es una aventura llena de risas, descubrimientos y momentos inolvidables.</p>
+    </div>
+</section>
+
+<section class="section services" id="servicios">
+    <h2>Nuestros Servicios ⭐</h2>
+    <div class="cards">
+        <div class="card" onclick="info('Danza: Expresamos emociones con música.')">
+            <img src="img/danza.png">
+            <h3>Danza</h3>
+            <p>Manejamos mejor las emociones a través de la música.</p>
+        </div>
+        <div class="card" onclick="info('Arte: Pintura y manualidades creativas.')">
+            <img src="img/arte.png">
+            <h3>Arte</h3>
+            <p>Ayudamos a desarrollar su creatividad e imaginación.</p>
+        </div>
+        <div class="card" onclick="info('Lectura: Cuentos y mucha imaginación.')">
+            <img src="img/lectura.png">
+            <h3>Lectura</h3>
+            <p>Fomentamos el amor por la lectura.</p>
+        </div>
+        <div class="card" onclick="info('Exploración: Descubrimos el mundo a nuestro alrededor.')">
+            <img src="img/exploracion.png">
+            <h3>Exploración</h3>
+            <p>Descubrimos el mundo a nuestro alrededor.</p>
+        </div>
+        <div class="card" onclick="info('Descanso: Tiempo para relajarse y recuperarse.')">
+            <img src="img/descanso.png">
+            <h3>Descanso</h3>
+            <p>Tiempo para relajarse y recuperarse.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="info-importante">
+    <h2 style="text-align: center;">Información Importante ⭐</h2>
+    <div class="info-boxes">
+        <div class="box"><strong>Edad:</strong> 2 a 5 años 🧒🏻👧🏼</div>
+        <div class="box"><strong>Horario:</strong> 7am ⏰ 5pm</div>
+        <div class="box"><strong>Costos:</strong> 💰 $250,000 matrícula</div>
+        <div class="box"><strong>Inclusión:</strong> 📝 Programa integral</div>
+    </div>
+</section>
+
+<section class="formulario section" id="formulario">
+    <h2>Formulario de Inscripción</h2>
+    <p>Déjanos tus datos y nos comunicaremos contigo por WhatsApp.</p>
+    <input id="nino" placeholder="Nombre del niño/a">
+    <input id="edad" placeholder="Edad del niño/a">
+    <input id="acudiente" placeholder="Nombre del acudiente">
+    <input id="parentesco" placeholder="Parentesco (opcional)">
+    <input id="correo" placeholder="Correo electrónico (opcional)">
+    <input id="cedula" placeholder="Número de cédula (opcional)">
+    <input id="telefono" placeholder="Teléfono de contacto">
+    <textarea id="mensaje" placeholder="¿Tienes alguna observación médica o especial?"></textarea>
+    <button class="btn-enviar" onclick="enviar()">Enviar solicitud</button>
+</section>
+
+<footer id="contacto">
+    <p><strong>Estrellitas Felices</strong></p>
+    <p> 👩🏼‍🏫 profe(Natalia) tel: +57 315 2103873</p>
+    <p> 👩🏼‍🏫 profe(Emely) tel: +57 313 7613261</p>
+    <p> 📩 estrellitasfelices@gmail.com</p>
+    <p> 🏡 Bogotá, Colombia calle 36 g sur # 11 a 66 barrio venecia</p>
+</footer>
+
+<div class="whatsapp-btn" onclick="abrir()">
+    <i class="fab fa-whatsapp"></i>
+</div>
+
+<script>
+    // Función para deslizar suavemente a una sección
+    function ir(id) {
+        const elemento = document.getElementById(id);
+        if(elemento) {
+            elemento.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
+    // Función para mostrar alertas de información rápida
+    function info(mensaje) {
+        alert(mensaje);
+    }
+
+    // Abrir WhatsApp directo
+    function abrir() {
+        window.open("https://wa.link/ixj8s1");
+    }
+
+    // Enviar datos del formulario a WhatsApp
+    function enviar() {
+        let n = document.getElementById('nino').value;
+        let a = document.getElementById('acudiente').value;
+        let t = document.getElementById('telefono').value;
+        let m = document.getElementById('mensaje').value;
+        let e = document.getElementById('edad').value;
+        let p = document.getElementById('parentesco').value;
+        
+        if (!n || !a || !t || !e) {
+            alert("Por favor completa los campos principales.");
+            return;
+        }
+
+        let mensajeWA = "Hola!%20Quiero%20inscribir%20a:%0A- Niño: " + n + "%0A- Edad: " + e + "%0A- Acudiente: " + a + "%0A- Parentesco: " + p + "%0A- Tel: " + t + "%0A- Obs: " + m;
+        window.open("https://wa.me/573152103873?text=" + mensajeWA);
+    }
+</script>
+
+</body>
+</html>
