@@ -12,33 +12,38 @@
         html { scroll-behavior: smooth; }
         body { background: linear-gradient(#7ec3ff, #eaf6ff); min-height: 100vh; }
 
-       .header {
+        .header{
             text-align: center;
-            background-color: #b3e5fc;
-            padding: 0;
-            overflow: hidden;
+            background-color: #5fa8d3; /* Fondo azul para el encabezado * /
+            color: white;
+            padding: 0px 0;    
         }
 
-        .header img {
-            display: block;
-            margin: 0 auto;
-            width: 90%;
-            max-width: 1000px;
-            height: auto;
-            -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-        }
+        .header-img {
+    width: 80%;
+    height: 900px; /* Altura ideal para que se vea el arcoíris y los personajes */
+    object-fit: cover; /* Truco para que no se estire la imagen */
+    object-position: center bottom; /* Centra la imagen para que no se corte el título de arriba */
+    display: block;
+    position: relative; /* Para que suba con el scroll */
+    z-index: 1;
+}
 
+       
+
+        /* NUEVA BARRA DE NAVEGACIÓN ESTILO CRISTAL */
         .navbar-container {
             background: linear-gradient(to bottom, #4a89c7, #265a8d);
             padding: 10px 20px;
             border-radius: 50px;
             border: 2px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-            width: 95%; /* Ajustado para que no se salga de la pantalla */
+            width: 260%;
             max-width: 1100px;
-            margin: 0 auto;
+            margin: -0px auto 0%; /* acerca la barra a la imagen */
             position: relative;
+            margin: 0% auto 0%;/* mantiene el efecto de subir sobre la imagen */
+        
             z-index: 1000;
         }
 
@@ -65,9 +70,10 @@
             border-radius: 20px;
         }
 
-        .nav-item i { color: #ffd700; font-size: 14px; }
+        .nav-item i { color: #ffd700; font-size: 14px; } /* Iconos dorados */
         .nav-item:hover { background: rgba(255, 255, 255, 0.2); }
 
+        /* SECCIONES */
         .section {
             background: white;
             border-radius: 20px;
@@ -75,11 +81,10 @@
             margin: 20px auto;
             width: 90%;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            scroll-margin-top: 20px; /* Para que al scrollear no quede pegado arriba */
         }
         
         .hero { display: flex; justify-content: space-between; flex-wrap: wrap; align-items: center; }
-        .hero img { width: 280px; border-radius: 20px; }
+        .hero img { width: 320px; border-radius: 20px; }
         .hero-text { max-width: 400px; }
         .hero-text button { background: #ffd166; border: none; padding: 12px 25px; border-radius: 20px; cursor: pointer; margin-top: 15px; font-weight: bold; }
 
@@ -95,92 +100,42 @@
             border: 3px solid #ffd166;
             transition: transform 0.2s;
         }
-        .momentos-img { 
-            width: 100%; 
-            max-width: 450px; 
-            display: block; 
-            margin: 20px auto; 
-            border-radius: 20px;
-        }
-        .guia-img {
-            width: 100%;
-            max-width: 300px;
-            display: block;
-            margin: 30px auto;
-            border-radius: 25px;
-        }
-        .plan-img {
-            width: 100%;
-            max-width: 760px;
-            display: block;
-            margin: 20px auto;
-            border-radius: 20px;
-        }
         .card:hover { transform: translateY(-5px); }
-        .card img { width: 100px; height: 100px; margin-bottom: 20px; }
+        /* Reemplaza estas URLs con las imágenes reales de tus personajes */
+        .card img { width: 100px; height: 100px; margin-bottom: 20px;; }
 
         .info-boxes { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 30px; }
-        .box { background: #f0f8ff; padding: 15px; border-radius: 15px; width: 150px; text-align: center; border: 1px dashed #5fa8d3; }
+        .box { background: #f0f8ff; padding: 15px; border-radius: 15px; width: 100px; text-align: center; border: 1px dashed #5fa8d3; }
 
-        .formulario input, .formulario textarea { width: 100%; max-width: 300px; margin: 8px auto; display: block; padding: 12px; border-radius: 10px; border: 1px solid #ccc; }
+        .formulario input, .formulario textarea { width: 100%; max-width: 500px; margin: 8px auto; display: block; padding: 12px; border-radius: 10px; border: 1px solid #ccc; }
         .btn-enviar { background: #5fa8d3; color: white; border: none; padding: 10px 30px; border-radius: 20px; cursor: pointer; font-weight: bold; margin-top: 10px; }
 
-        footer { background: #5fa8d3; color: white; text-align: center; padding: 30px; margin-top: 40px; }
+        footer { background: #265a8d; color: white; text-align: center; padding: 30px; margin-top: 40px; }
+
         .whatsapp-btn { 
             position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; 
             width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; 
             justify-content: center; font-size: 30px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
-
-/* --- MEJORA DE IMÁGENES GENERAL --- */
-img {
-    max-width: 100%;
-    height: auto;
-}
-/* --- MEDIA QUERIES PARA RESPONSIVE --- */
-@media (max-width: 768px) {
-    /* Esto hace que los cuadros de Danza, Arte, etc. se pongan uno debajo del otro */
-    .info-boxes {
-        flex-direction: column !important;
-        align-items: center !important;
-    }
-
-    /* Hace que cada cuadro ocupe el ancho del celular */
-    .box {
-        width: 90% !important;
-    }
-
-    /* Ajusta el logo para que no se salga de la pantalla */
-    .header img {
-        width: 100% !important;
-        height: auto !important;
-    }
-
-    /* Estira el formulario para que sea fácil de tocar */
-    .formulario input, .formulario textarea {
-        width: 100% !important;
-    }
-}
     </style>
 </head>
 <body>
 
-<header class="header">
-    <img src="img/estrellitass.png" 
-         style="display: block; margin: 0 auto; width: 800px; mask-image: radial-gradient(circle, black 70%, transparent 100%); -webkit-mask-image: radial-gradient(circle, black 70%, transparent 100%); opacity: 0.9;" 
-         alt="Estrellitas Felices">
+<header>
+    <header class="header">
+    <img src="img/estrellitas.png" alt="encabezado" class="header-img">
+    <nav class="menu">
+    </nav>"  
 </header>
 
 <nav class="navbar-container">
     <div class="navbar-nav">
         <button class="nav-item" onclick="window.scrollTo(0,0)"><i class="fas fa-home"></i> Inicio</button>
         <button class="nav-item" onclick="ir('servicios')"><i class="fas fa-star"></i> Servicios</button>
-        <button class="nav-item" onclick="ir('nosotros')"><i class="fas fa-users"></i> Nosotros</button>
-        <button class="nav-item" onclick="ir('momentos')"><i class="fas fa-heart"></i> Momentos</button>
-        <button class="nav-item" onclick="ir('fuera de este mundo')"><i class="fas fa-rocket"></i> Guía 3D</button>
-         <button class="nav-item" onclick="ir('bocaditos con amor')"><i class="fas fa-utensils"></i> Alimentación</button>
-        <button class="nav-item" onclick="ir('info-importante')"><i class="fas fa-clock"></i> Horario</button>
-        <button class="nav-item" onclick="ir('info-importante')"><i class="fas fa-dollar-sign"></i> Costos</button>
+        <button class="nav-item" onclick="info('Nosotros')"><i class="fas fa-users"></i> Nosotros</button>
+        <button class="nav-item" onclick="info('Experiencias')"><i class="fas fa-heart"></i> Experiencias</button>
+        <button class="nav-item" onclick="info('Nuestro Horario es de 7am ⏰a 5pm')"><i class="fas fa-clock"></i> Horario</button>
+        <button class="nav-item" onclick="info('Matrícula: 💰$250,000')"><i class="fas fa-dollar-sign"></i> Costos</button>
         <button class="nav-item" onclick="ir('formulario')"><i class="fas fa-edit"></i> Formulario</button>
         <button class="nav-item" onclick="ir('contacto')"><i class="fas fa-phone"></i> Contacto</button>
     </div>
@@ -194,66 +149,54 @@ img {
     </div>
     <img src="img/escuelita.png">
 </div>
-
 <section class="section" id="nosotros">
     <h2>¿Quiénes Somos? 🌟</h2>
     <p>Somos Natalia y Emely, dos educadoras apasionadas por el desarrollo infantil. Con más de 2 años de experiencia, hemos creado un espacio seguro y lleno de amor para que los niños crezcan felices y aprendan jugando.</p>
 </section>
-
-<section class="section" id="momentos">
-    <h2>Nuestros Momentos ⭐</h2>
-    <img src="img/momentos.png" class="momentos-img">
-    <div style="margin-top: 15px; text-align: center;">
-        <p>En Estrellitas Felices, cada día es una aventura llena de risas, descubrimientos y momentos inolvidables.</p>
-    </div>
-   <div class="section"id="fuera de este mundo">
-    <h2>Fuera de este Mundo ⭐</h2>
-    <img src="img/guia.png" class="guia-img">
-    <div style="margin-top: 15px; text-align: center;">
-        <p>Queremos que todos los niños empiecen su aventura espacial hoy mismo. Por eso, nuestra guía didáctica 3D es completamente gratuita, estén o no inscritos en el jardín. si aún no eres parte de nuestra familia, queremos que brilles con nosotros!</p>
-        <p>para mas información, contáctanos! a través de nuestro número de WhatsApp: ! no tequedes sin la tuya!</p>
-    </div>
-    <div class="section" id="bocaditos con amor">
-        <h2>bocaditos con amor ⭐</h2>
-        <img src="img/plan.png" class="plan-img">
-        <div style="margin-top: 15px; text-align: center;">
-            <p> ofrecer una buena alimentación es la base para un gran aprendizaje. con menús balanceados, frescos y llenos de sabor, preparados diariamente para brindarles la energía que necesitan bajo la supervisión de las secretarias de gobierno.</p>
+<section class="section" id="experiencias">
+    <h2>Nuestras Experiencias ⭐</h2>
+            <img src="img/momentos.png" style="width: 100%; border-radius: 20px; margin-top: 10px;">
+             <div style="margin-top: 15px; text-align: center;">
+                <p>En Estrellitas Felices, cada día es una aventura llena de risas, descubrimientos y momentos inolvidables. Desde la emoción de aprender a bailar hasta la alegría de crear arte con nuestras manos, cada experiencia está diseñada para nutrir el corazón y la mente de nuestros pequeños.</p>
         </div>
-</section>
 
+        </div>
+    </div>
+</section>
 <section class="section services" id="servicios">
     <h2>Nuestros Servicios ⭐</h2>
     <div class="cards">
         <div class="card" onclick="info('Danza: Expresamos emociones con música.')">
             <img src="img/danza.png">
             <h3>Danza</h3>
-            <p>Manejamos mejor las emociones a través de la música.</p>
+            <p>manejamos  mejor las emociones atravez de la música</p>
+    
         </div>
         <div class="card" onclick="info('Arte: Pintura y manualidades creativas.')">
             <img src="img/arte.png">
             <h3>Arte</h3>
-            <p>Ayudamos a desarrollar su creatividad e imaginación.</p>
+            <p>ayudamos a desarrollar su creatividad e imaginación</p>
+
         </div>
         <div class="card" onclick="info('Lectura: Cuentos y mucha imaginación.')">
             <img src="img/lectura.png">
             <h3>Lectura</h3>
-            <p>Fomentamos el amor por la lectura.</p>
+            <p>fomentanmos el amor por la lectura</p>
         </div>
         <div class="card" onclick="info('Exploración: Descubrimos el mundo a nuestro alrededor.')">
             <img src="img/exploracion.png">
             <h3>Exploración</h3>
             <p>Descubrimos el mundo a nuestro alrededor.</p>
+            
         </div>
         <div class="card" onclick="info('Descanso: Tiempo para relajarse y recuperarse.')">
             <img src="img/descanso.png">
             <h3>Descanso</h3>
             <p>Tiempo para relajarse y recuperarse.</p>
+            
         </div>
     </div>
-</section>
 
-<section class="section" id="info-importante">
-    <h2 style="text-align: center;">Información Importante ⭐</h2>
     <div class="info-boxes">
         <div class="box"><strong>Edad:</strong> 2 a 5 años 🧒🏻👧🏼</div>
         <div class="box"><strong>Horario:</strong> 7am ⏰ 5pm</div>
@@ -278,10 +221,9 @@ img {
 
 <footer id="contacto">
     <p><strong>Estrellitas Felices</strong></p>
-    <p> 👩🏼‍🏫 profe(Natalia) tel: +57 315 2103873</p>
-    <p> 👩🏼‍🏫 profe(Emely) tel: +57 313 7613261</p>
-    <p> 📩 estrellitasfelices@gmail.com</p>
-    <p> 🏡 Bogotá, Colombia calle 36 g sur # 11 a 66 barrio venecia</p>
+    <p>📍 Bogotá, Colombia</p>
+    <p>📞 +57 315 2103873 (Natalia)</p>
+    <p>📞 +57 313 7613261 (Emely)</p>
 </footer>
 
 <div class="whatsapp-btn" onclick="abrir()">
@@ -289,12 +231,9 @@ img {
 </div>
 
 <script>
-    // Función para deslizar suavemente a una sección
+    // Función para deslizar suavemente
     function ir(id) {
-        const elemento = document.getElementById(id);
-        if(elemento) {
-            elemento.scrollIntoView({ behavior: 'smooth' });
-        }
+        document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
     }
 
     // Función para mostrar alertas de información rápida
@@ -315,14 +254,13 @@ img {
         let m = document.getElementById('mensaje').value;
         let e = document.getElementById('edad').value;
         let p = document.getElementById('parentesco').value;
-        
         if (!n || !a || !t || !e) {
             alert("Por favor completa los campos principales.");
             return;
         }
 
         let mensajeWA = "Hola!%20Quiero%20inscribir%20a:%0A- Niño: " + n + "%0A- Edad: " + e + "%0A- Acudiente: " + a + "%0A- Parentesco: " + p + "%0A- Tel: " + t + "%0A- Obs: " + m;
-        window.open("https://wa.me/573137613261?text=" + mensajeWA);
+        window.open("https://wa.me/573152103873?text=" + mensajeWA);
     }
 </script>
 
