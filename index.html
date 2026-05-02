@@ -161,34 +161,18 @@ img {
         width: 100% !important;
     }
 }
-/* --- boton de hamburgesa --- */
-.menu-toggle {
-    display: none;
-}
-/* solo en celulares */
+/* --- estilo para celular --- */
 @media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-        text-align: center;
-        width: 100%;
-        margin-bottom: 10px;
-        font-size: 22px;
-        color: white;
-        background: none;
-        border: none;
-        cursor: pointer;
+    .nav-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;/* Hace que haya 2 columnas en el menú de navegación para que no se salga de la pantalla */
+        gap: 10px;
     }
-        .navbar-nav {
-            display: none;
-            flex-direction: column;
-            gap: 0;
-        }
-        .navbar-nav.active {
-            display: flex;
-        }
-    
+    .nav-container {
+        margin: 10px; /* Reduce el margen para que el menú ocupe más espacio en pantallas pequeñas */
+        border-radius: 20px; /* Hace que el menú tenga bordes más redondeados en celular */
+    }
 }
-
     </style>
 </head>
 <body>
@@ -200,9 +184,6 @@ img {
 </header>
 
 <nav class="navbar-container">
-    <button class="menu-toggle" onclick="document.querySelector('.navbar-nav').classList.toggle('active')">
-        <i class="fas fa-bars"></i>
-    </button>
     <div class="navbar-nav">
         <button class="nav-item" onclick="window.scrollTo(0,0)"><i class="fas fa-home"></i> Inicio</button>
         <button class="nav-item" onclick="ir('servicios')"><i class="fas fa-star"></i> Servicios</button>
@@ -338,11 +319,6 @@ img {
     // Abrir WhatsApp directo
     function abrir() {
         window.open("https://wa.link/ixj8s1");
-    }
-    //funtion para mostrar el menu en celulares
-     function toggleMenu() {
-        const nav = document.querySelector('.navbar-nav');
-        nav.classList.toggle('active');
     }
 
     // Enviar datos del formulario a WhatsApp
