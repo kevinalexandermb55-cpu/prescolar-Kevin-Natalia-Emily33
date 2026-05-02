@@ -163,16 +163,41 @@ img {
 }
 /* --- estilo para celular --- */
 @media (max-width: 768px) {
-    .nav-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;/* Hace que haya 2 columnas en el menú de navegación para que no se salga de la pantalla */
-        gap: 10px;
-    }
     .nav-container {
-        margin: 10px; /* Reduce el margen para que el menú ocupe más espacio en pantallas pequeñas */
-        border-radius: 20px; /* Hace que el menú tenga bordes más redondeados en celular */
-    }
+    margin: 10px 15px;
+    padding: 12px;
+    background-color: #1a65a4; /* El azul de tu proyecto */
+    border-radius: 20px;
+  }
+
+  .nav-grid {
+    display: grid;
+    /* Esto es lo que organiza los 10 elementos en 5 filas de 2 */
+    grid-template-columns: 1fr 1fr; 
+    gap: 8px; 
+  }
+
+  .nav-grid a {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    background: rgba(255, 255, 255, 0.15); 
+    color: #ffcc00; /* Amarillo como Lisa */
+    padding: 8px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 12px; /* Tamaño pequeño para que no se desborde */
+    font-weight: bold;
+    text-align: center;
+  }
+
+  /* Si usas iconos de FontAwesome */
+  .nav-grid a i {
+    margin-right: 5px;
+  }
 }
+
+
     </style>
 </head>
 <body>
