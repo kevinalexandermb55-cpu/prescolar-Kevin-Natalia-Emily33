@@ -190,8 +190,12 @@
     <button class="nav-item" onclick="toggleMenu(); ir('servicios')"><i class="fas fa-star"></i> Servicios</button>
     <button class="nav-item" onclick="toggleMenu(); ir('nosotros')"><i class="fas fa-users"></i> Nosotros</button>
     <button class="nav-item" onclick="toggleMenu(); ir('momentos')"><i class="fas fa-heart"></i> Momentos</button>
-    <button class="nav-item" onclick="toggleMenu(); ir('fuera de este mundo')"><i class="fas fa-rocket"></i> Guía 3D</button>
+    <button class="nav-item" onclick="toggleMenu(); ir('gia 3D')"><i class="fas fa-rocket"></i> Guía 3D</button>
+   <button class="nav-item" onclick="toggleMenu(); ir('bocaditos con amor')"><i class="fas fa-rocket"></i> Alimentación</button>
+   <button class="nav-item" onclick="toggleMenu(); ir('info-importante')"><i class="fas fa-rocket"></i> horario</button>
+   <button class="nav-item" onclick="toggleMenu(); ir('info-importante')"><i class="fas fa-rocket"></i> costos</button>
     <button class="nav-item" onclick="toggleMenu(); ir('formulario')"><i class="fas fa-edit"></i> Formulario</button>
+    <button class="nav-item" onclick="toggleMenu(); ir('contacto')"><i class="fas fa-edit"></i> contacto</button>
 </nav>
 
 <header class="header">
@@ -203,8 +207,8 @@
 <nav class="navbar-container">
     <div class="navbar-nav">
         <button class="nav-item" onclick="window.scrollTo(0,0)"><i class="fas fa-home"></i> Inicio</button>
-        <button class="nav-item" onclick="ir('servicios')"><i class="fas fa-star"></i> Servicios</button>
-        <button class="nav-item" onclick="ir('nosotros')"><i class="fas fa-users"></i> Nosotros</button>
+        <button class="nav-item" onclick="ir('servicios')"><i class="fas fa-star"></i> servicios</button>
+        <button class="nav-item" onclick="ir('nosotros')"><i class="fas fa-users"></i> nosotros</button>
         <button class="nav-item" onclick="ir('momentos')"><i class="fas fa-heart"></i> Momentos</button>
         <button class="nav-item" onclick="ir('fuera de este mundo')"><i class="fas fa-rocket"></i> Guía 3D</button>
          <button class="nav-item" onclick="ir('bocaditos con amor')"><i class="fas fa-utensils"></i> Alimentación</button>
@@ -232,19 +236,30 @@
 <section class="section" id="momentos">
     <h2>Nuestros Momentos ⭐</h2>
     <img src="img/momentos.png" class="momentos-img">
+    <div style="margin-top: 15px; text-align: center;">
+        <p>"Cada día en Estrellitas Felices es una nueva aventura. Aquí capturamos las sonrisas, los descubrimientos y esos pequeños grandes logros que hacen que el aprendizaje sea inolvidable. ¡Mira cómo brillan nuestros pequeños!"</p>
+    </div>
 </section>
 
 <section class="section" id="fuera de este mundo">
     <h2>Guía 3D ⭐</h2>
     <img src="img/guia.png" class="guia-img">
     <div style="margin-top: 15px; text-align: center;">
-        <p>Queremos que todos los niños empiecen su aventura espacial hoy mismo.</p>
+        <p>"¡Explora nuestro universo en 3D! 🚀"
+Queremos que todos los niños empiecen su aventura hoy mismo, por eso nuestra Guía Interactiva 3D es totalmente gratuita, ¡estén inscritos o no!
+¿Cómo conseguirla?
+📍 Visítanos: Reclámala físicamente en nuestro jardín infantil.
+📱 Pídela por WhatsApp: Haz clic en el botón de contacto y te la enviamos digitalmente de inmediato.
+¡No te quedes sin la tuya y descubre la magia de Estrellitas Felices desde cualquier ángulo!.</p>
     </div>
 </section>
 
 <section class="section" id="bocaditos con amor">
     <h2>Bocaditos con Amor ⭐</h2>
     <img src="img/plan.png" class="plan-img">
+    <div style="margin-top: 15px; text-align: center;">
+        <p>"En Estrellitas Felices, entendemos que una buena nutrición es el combustible para grandes aventuras. Nuestros menús están diseñados para aportar la energía necesaria en cada etapa del crecimiento, utilizando ingredientes frescos y balanceados." </p>
+    </div>
 </section>
 
 <section class="section services" id="servicios">
@@ -293,6 +308,7 @@
     <input id="nino" placeholder="Nombre del niño/a">
     <input id="edad" placeholder="Edad del niño/a">
     <input id="acudiente" placeholder="Nombre del acudiente">
+    <input id="parentesco"placeholder="parentesco">
     <input id="telefono" placeholder="Teléfono de contacto">
     <textarea id="mensaje" placeholder="¿Tienes alguna observación médica o especial?"></textarea>
     <button class="btn-enviar" onclick="enviar()">Enviar solicitud</button>
