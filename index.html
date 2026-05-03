@@ -35,11 +35,14 @@
             border-radius: 50px;
             border: 2px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-            width: 95%; /* Ajustado para que no se salga de la pantalla */
+            width: 95%;
             max-width: 1100px;
             margin: 0 auto;
             position: relative;
             z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .navbar-nav {
@@ -68,6 +71,17 @@
         .nav-item i { color: #ffd700; font-size: 14px; }
         .nav-item:hover { background: rgba(255, 255, 255, 0.2); }
 
+        .hamburger-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+        }
+
         .section {
             background: white;
             border-radius: 20px;
@@ -75,7 +89,7 @@
             margin: 20px auto;
             width: 90%;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            scroll-margin-top: 20px; /* Para que al scrollear no quede pegado arriba */
+            scroll-margin-top: 20px;
         }
         
         .hero { display: flex; justify-content: space-between; flex-wrap: wrap; align-items: center; }
@@ -84,7 +98,16 @@
         .hero-text button { background: #ffd166; border: none; padding: 12px 25px; border-radius: 20px; cursor: pointer; margin-top: 15px; font-weight: bold; }
 
         .services { text-align: center; }
-        .cards { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
+        
+        /* Contenedor de tarjetas con scroll lateral en móvil */
+        .cards { 
+            display: flex; 
+            justify-content: center; 
+            gap: 20px; 
+            flex-wrap: wrap; 
+            margin-top: 20px; 
+        }
+
         .card {
             background: white;
             border-radius: 20px;
@@ -94,30 +117,15 @@
             box-shadow: 0 6px 15px rgba(0,0,0,0.1);
             border: 3px solid #ffd166;
             transition: transform 0.2s;
+            flex-shrink: 0; /* Evita que las tarjetas se encojan */
         }
-        .momentos-img { 
-            width: 100%; 
-            max-width: 450px; 
-            display: block; 
-            margin: 20px auto; 
-            border-radius: 20px;
-        }
-        .guia-img {
-            width: 100%;
-            max-width: 300px;
-            display: block;
-            margin: 30px auto;
-            border-radius: 25px;
-        }
-        .plan-img {
-            width: 100%;
-            max-width: 760px;
-            display: block;
-            margin: 20px auto;
-            border-radius: 20px;
-        }
+
         .card:hover { transform: translateY(-5px); }
         .card img { width: 100px; height: 100px; margin-bottom: 20px; }
+
+        .momentos-img { width: 100%; max-width: 450px; display: block; margin: 20px auto; border-radius: 20px; }
+        .guia-img { width: 100%; max-width: 300px; display: block; margin: 30px auto; border-radius: 25px; }
+        .plan-img { width: 100%; max-width: 760px; display: block; margin: 20px auto; border-radius: 20px; }
 
         .info-boxes { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 30px; }
         .box { background: #f0f8ff; padding: 15px; border-radius: 15px; width: 150px; text-align: center; border: 1px dashed #5fa8d3; }
@@ -132,72 +140,38 @@
             justify-content: center; font-size: 30px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
-/* --- MEJORA DE IMÁGENES GENERAL --- */
-img {
-    max-width: 100%;
-    height: auto;
-}
-/* --- MEDIA QUERIES PARA RESPONSIVE --- */
-@media (max-width: 768px) {
-    /* Esto hace que los cuadros de Danza, Arte, etc. se pongan uno debajo del otro */
-    .info-boxes {
-        flex-direction: column !important;
-        align-items: center !important;
-    }
+        img { max-width: 100%; height: auto; }
 
-    /* Hace que cada cuadro ocupe el ancho del celular */
-    .box {
-        width: 90% !important;
-    }
+        /* --- MEDIA QUERIES PARA RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .navbar-container { justify-content: flex-end; border-radius: 25px; padding: 15px 20px; }
+            .hamburger-btn { display: block; }
+            .navbar-nav { display: none; flex-direction: column; width: 100%; margin-top: 40px; gap: 5px; }
+            .navbar-nav.active { display: flex; }
 
-    /* Ajusta el logo para que no se salga de la pantalla */
-    .header img {
-        width: 100% !important;
-        height: auto !important;
-    }
+            /* Efecto deslizar a la derecha para las tarjetas de servicios */
+            .cards {
+                justify-content: flex-start; /* Alinea al inicio para el scroll */
+                flex-wrap: nowrap; /* Evita que bajen, obliga a ir a la derecha */
+                overflow-x: auto; /* Habilita el scroll lateral */
+                padding: 20px;
+                scroll-snap-type: x mandatory; /* Hace que se detenga tarjeta por tarjeta */
+                -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
+            }
 
-    /* Estira el formulario para que sea fácil de tocar */
-    .formulario input, .formulario textarea {
-        width: 100% !important;
-    }
-}
-/* --- estilo para celular --- */
-@media (max-width: 768px) {
-    .nav-container {
-    margin: 10px 15px;
-    padding: 12px;
-    background-color: #1a65a4; /* El azul de tu proyecto */
-    border-radius: 20px;
-  }
+            .card {
+                scroll-snap-align: center; /* Centra la tarjeta al deslizar */
+                width: 220px; /* Un poco más ancha para resaltar en móvil */
+            }
 
-  .nav-grid {
-    display: grid;
-    /* Esto es lo que organiza los 10 elementos en 5 filas de 2 */
-    grid-template-columns: 1fr 1fr; 
-    gap: 8px; 
-  }
+            /* Ocultar barra de scroll para que se vea más limpio */
+            .cards::-webkit-scrollbar { display: none; }
 
-  .nav-grid a {
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-    background: rgba(255, 255, 255, 0.15); 
-    color: #ffcc00; /* Amarillo como Lisa */
-    padding: 8px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 12px; /* Tamaño pequeño para que no se desborde */
-    font-weight: bold;
-    text-align: center;
-  }
-
-  /* Si usas iconos de FontAwesome */
-  .nav-grid a i {
-    margin-right: 5px;
-  }
-}
-
-
+            .info-boxes { flex-direction: column !important; align-items: center !important; }
+            .box { width: 90% !important; }
+            .header img { width: 100% !important; height: auto !important; }
+            .formulario input, .formulario textarea { width: 100% !important; }
+        }
     </style>
 </head>
 <body>
@@ -209,13 +183,17 @@ img {
 </header>
 
 <nav class="navbar-container">
-    <div class="navbar-nav">
+    <button class="hamburger-btn" id="btn-menu">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="navbar-nav" id="menu-items">
         <button class="nav-item" onclick="window.scrollTo(0,0)"><i class="fas fa-home"></i> Inicio</button>
         <button class="nav-item" onclick="ir('servicios')"><i class="fas fa-star"></i> Servicios</button>
         <button class="nav-item" onclick="ir('nosotros')"><i class="fas fa-users"></i> Nosotros</button>
         <button class="nav-item" onclick="ir('momentos')"><i class="fas fa-heart"></i> Momentos</button>
         <button class="nav-item" onclick="ir('fuera de este mundo')"><i class="fas fa-rocket"></i> Guía 3D</button>
-         <button class="nav-item" onclick="ir('bocaditos con amor')"><i class="fas fa-utensils"></i> Alimentación</button>
+        <button class="nav-item" onclick="ir('bocaditos con amor')"><i class="fas fa-utensils"></i> Alimentación</button>
         <button class="nav-item" onclick="ir('info-importante')"><i class="fas fa-clock"></i> Horario</button>
         <button class="nav-item" onclick="ir('info-importante')"><i class="fas fa-dollar-sign"></i> Costos</button>
         <button class="nav-item" onclick="ir('formulario')"><i class="fas fa-edit"></i> Formulario</button>
@@ -244,22 +222,23 @@ img {
         <p>En Estrellitas Felices, cada día es una aventura llena de risas, descubrimientos y momentos inolvidables.</p>
     </div>
 </section>
+
 <section class="section" id="fuera de este mundo">
     <h2>Guía 3D ⭐</h2>
     <img src="img/guia.png" class="guia-img">
     <div style="margin-top: 15px; text-align: center;">
-        <p>Queremos que todos los niños empiecen su aventura espacial hoy mismo. Por eso, nuestra guía didáctica 3D es completamente gratuita, estén o no inscritos en el jardín. si aún no eres parte de nuestra familia, queremos que brilles con nosotros!</p>
-        <p>para mas información, contáctanos! a través de nuestro número de WhatsApp: ! no tequedes sin la tuya!</p>
+        <p>Queremos que todos los niños empiecen su aventura espacial hoy mismo. Por eso, nuestra guía didáctica 3D es completamente gratuita.</p>
     </div>
 </section>
+
 <section class="section" id="bocaditos con amor">
     <h2>Bocaditos con Amor ⭐</h2>
     <img src="img/plan.png" class="plan-img">
     <div style="margin-top: 15px; text-align: center;">
         <p>Ofrecemos un plan de alimentación saludable y delicioso, diseñado para nutrir a nuestros pequeños exploradores.</p>
-        <p>bajo las normas de las secretarias de gobierno.</p>
     </div>
 </section>
+
 <section class="section services" id="servicios">
     <h2>Nuestros Servicios ⭐</h2>
     <div class="cards">
@@ -328,25 +307,24 @@ img {
 </div>
 
 <script>
-    // Función para deslizar suavemente a una sección
+    const btnMenu = document.getElementById('btn-menu');
+    const menuItems = document.getElementById('menu-items');
+
+    btnMenu.addEventListener('click', () => {
+        menuItems.classList.toggle('active');
+    });
+
     function ir(id) {
         const elemento = document.getElementById(id);
         if(elemento) {
             elemento.scrollIntoView({ behavior: 'smooth' });
         }
+        menuItems.classList.remove('active');
     }
 
-    // Función para mostrar alertas de información rápida
-    function info(mensaje) {
-        alert(mensaje);
-    }
+    function info(mensaje) { alert(mensaje); }
+    function abrir() { window.open("https://wa.link/ixj8s1"); }
 
-    // Abrir WhatsApp directo
-    function abrir() {
-        window.open("https://wa.link/ixj8s1");
-    }
-
-    // Enviar datos del formulario a WhatsApp
     function enviar() {
         let n = document.getElementById('nino').value;
         let a = document.getElementById('acudiente').value;
