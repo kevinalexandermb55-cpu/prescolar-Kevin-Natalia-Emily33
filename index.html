@@ -12,22 +12,8 @@
         html { scroll-behavior: smooth; }
         body { background: linear-gradient(#7ec3ff, #eaf6ff); min-height: 100vh; }
 
-       .header {
-            text-align: center;
-            background-color: #b3e5fc;
-            padding: 0;
-            overflow: hidden;
-        }
-
-        .header img {
-            display: block;
-            margin: 0 auto;
-            width: 90%;
-            max-width: 1000px;
-            height: auto;
-            -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-        }
+       .header { text-align: center; background-color: #b3e5fc; padding: 0; overflow: hidden; }
+       .header img { display: block; margin: 0 auto; width: 90%; max-width: 1000px; height: auto; -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%); mask-image: linear-gradient(to bottom, black 80%, transparent 100%); }
 
         .navbar-container {
             background: linear-gradient(to bottom, #4a89c7, #265a8d);
@@ -38,58 +24,33 @@
             width: 95%;
             max-width: 1100px;
             margin: 0 auto;
-            position: relative;
+            position: sticky; /* Se mantiene arriba para fácil acceso */
+            top: 10px;
             z-index: 1000;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        .navbar-nav {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
+        .navbar-nav { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
 
         .nav-item {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 13px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            padding: 8px 12px;
-            cursor: pointer;
-            transition: 0.3s;
-            border-radius: 20px;
+            background: none; border: none; color: white; font-size: 13px; font-weight: 600;
+            display: flex; align-items: center; gap: 5px; padding: 8px 12px; cursor: pointer;
+            transition: 0.3s; border-radius: 20px;
         }
-
         .nav-item i { color: #ffd700; font-size: 14px; }
         .nav-item:hover { background: rgba(255, 255, 255, 0.2); }
 
         .hamburger-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-            position: absolute;
-            right: 20px;
+            display: none; background: none; border: none; color: white;
+            font-size: 24px; cursor: pointer; position: absolute; right: 20px;
         }
 
         .section {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            margin: 20px auto;
-            width: 90%;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            scroll-margin-top: 20px;
+            background: white; border-radius: 20px; padding: 30px; margin: 20px auto;
+            width: 90%; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            scroll-margin-top: 80px; /* Evita que el menú tape el título al saltar */
         }
         
         .hero { display: flex; justify-content: space-between; flex-wrap: wrap; align-items: center; }
@@ -98,34 +59,14 @@
         .hero-text button { background: #ffd166; border: none; padding: 12px 25px; border-radius: 20px; cursor: pointer; margin-top: 15px; font-weight: bold; }
 
         .services { text-align: center; }
-        
-        /* Contenedor de tarjetas con scroll lateral en móvil */
-        .cards { 
-            display: flex; 
-            justify-content: center; 
-            gap: 20px; 
-            flex-wrap: wrap; 
-            margin-top: 20px; 
-        }
+        .cards { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
 
         .card {
-            background: white;
-            border-radius: 20px;
-            padding: 15px;
-            width: 180px;
-            cursor: pointer;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-            border: 3px solid #ffd166;
-            transition: transform 0.2s;
-            flex-shrink: 0; /* Evita que las tarjetas se encojan */
+            background: white; border-radius: 20px; padding: 15px; width: 180px;
+            cursor: pointer; box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            border: 3px solid #ffd166; transition: transform 0.2s; flex-shrink: 0;
         }
-
-        .card:hover { transform: translateY(-5px); }
         .card img { width: 100px; height: 100px; margin-bottom: 20px; }
-
-        .momentos-img { width: 100%; max-width: 450px; display: block; margin: 20px auto; border-radius: 20px; }
-        .guia-img { width: 100%; max-width: 300px; display: block; margin: 30px auto; border-radius: 25px; }
-        .plan-img { width: 100%; max-width: 760px; display: block; margin: 20px auto; border-radius: 20px; }
 
         .info-boxes { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 30px; }
         .box { background: #f0f8ff; padding: 15px; border-radius: 15px; width: 150px; text-align: center; border: 1px dashed #5fa8d3; }
@@ -138,48 +79,30 @@
             position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; 
             width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; 
             justify-content: center; font-size: 30px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 2000;
         }
 
-        img { max-width: 100%; height: auto; }
-
-        /* --- MEDIA QUERIES PARA RESPONSIVE --- */
         @media (max-width: 768px) {
-            .navbar-container { justify-content: flex-end; border-radius: 25px; padding: 15px 20px; }
+            .navbar-container { justify-content: flex-end; border-radius: 25px; padding: 15px 20px; width: 95%; }
             .hamburger-btn { display: block; }
             .navbar-nav { display: none; flex-direction: column; width: 100%; margin-top: 40px; gap: 5px; }
             .navbar-nav.active { display: flex; }
 
-            /* Efecto deslizar a la derecha para las tarjetas de servicios */
             .cards {
-                justify-content: flex-start; /* Alinea al inicio para el scroll */
-                flex-wrap: nowrap; /* Evita que bajen, obliga a ir a la derecha */
-                overflow-x: auto; /* Habilita el scroll lateral */
-                padding: 20px;
-                scroll-snap-type: x mandatory; /* Hace que se detenga tarjeta por tarjeta */
-                -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
+                justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto;
+                padding: 20px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
             }
-
-            .card {
-                scroll-snap-align: center; /* Centra la tarjeta al deslizar */
-                width: 220px; /* Un poco más ancha para resaltar en móvil */
-            }
-
-            /* Ocultar barra de scroll para que se vea más limpio */
+            .card { scroll-snap-align: center; width: 220px; }
             .cards::-webkit-scrollbar { display: none; }
-
-            .info-boxes { flex-direction: column !important; align-items: center !important; }
-            .box { width: 90% !important; }
-            .header img { width: 100% !important; height: auto !important; }
-            .formulario input, .formulario textarea { width: 100% !important; }
+            
+            .header img { width: 80% !important; }
         }
     </style>
 </head>
 <body>
 
 <header class="header">
-    <img src="img/estrellitass.png" 
-         style="display: block; margin: 0 auto; width: 800px; mask-image: radial-gradient(circle, black 70%, transparent 100%); -webkit-mask-image: radial-gradient(circle, black 70%, transparent 100%); opacity: 0.9;" 
-         alt="Estrellitas Felices">
+    <img src="img/estrellitass.png" style="width: 800px;" alt="Estrellitas Felices">
 </header>
 
 <nav class="navbar-container">
@@ -188,14 +111,13 @@
     </button>
 
     <div class="navbar-nav" id="menu-items">
-        <button class="nav-item" onclick="window.scrollTo(0,0)"><i class="fas fa-home"></i> Inicio</button>
+        <button class="nav-item" onclick="window.scrollTo(0,0); menuItems.classList.remove('active')"><i class="fas fa-home"></i> Inicio</button>
         <button class="nav-item" onclick="ir('servicios')"><i class="fas fa-star"></i> Servicios</button>
         <button class="nav-item" onclick="ir('nosotros')"><i class="fas fa-users"></i> Nosotros</button>
         <button class="nav-item" onclick="ir('momentos')"><i class="fas fa-heart"></i> Momentos</button>
-        <button class="nav-item" onclick="ir('fuera de este mundo')"><i class="fas fa-rocket"></i> Guía 3D</button>
-        <button class="nav-item" onclick="ir('bocaditos con amor')"><i class="fas fa-utensils"></i> Alimentación</button>
+        <button class="nav-item" onclick="ir('guia')"><i class="fas fa-rocket"></i> Guía 3D</button>
+        <button class="nav-item" onclick="ir('alimentacion')"><i class="fas fa-utensils"></i> Alimentación</button>
         <button class="nav-item" onclick="ir('info-importante')"><i class="fas fa-clock"></i> Horario</button>
-        <button class="nav-item" onclick="ir('info-importante')"><i class="fas fa-dollar-sign"></i> Costos</button>
         <button class="nav-item" onclick="ir('formulario')"><i class="fas fa-edit"></i> Formulario</button>
         <button class="nav-item" onclick="ir('contacto')"><i class="fas fa-phone"></i> Contacto</button>
     </div>
@@ -212,94 +134,52 @@
 
 <section class="section" id="nosotros">
     <h2>¿Quiénes Somos? 🌟</h2>
-    <p>Somos Natalia y Emely, dos educadoras apasionadas por el desarrollo infantil. Con más de 2 años de experiencia, hemos creado un espacio seguro y lleno de amor para que los niños crezcan felices y aprendan jugando.</p>
+    <p>Somos Natalia y Emely, dos educadoras apasionadas por el desarrollo infantil. Con más de 2 años de experiencia, hemos creado un espacio seguro y lleno de amor.</p>
 </section>
 
 <section class="section" id="momentos">
     <h2>Nuestros Momentos ⭐</h2>
-    <img src="img/momentos.png" class="momentos-img">
-    <div style="margin-top: 15px; text-align: center;">
-        <p>En Estrellitas Felices, cada día es una aventura llena de risas, descubrimientos y momentos inolvidables.</p>
-    </div>
+    <img src="img/momentos.png" style="width:100%; border-radius:20px;">
 </section>
 
-<section class="section" id="fuera de este mundo">
+<section class="section" id="guia">
     <h2>Guía 3D ⭐</h2>
-    <img src="img/guia.png" class="guia-img">
-    <div style="margin-top: 15px; text-align: center;">
-        <p>Queremos que todos los niños empiecen su aventura espacial hoy mismo. Por eso, nuestra guía didáctica 3D es completamente gratuita.</p>
-    </div>
+    <p>Nuestra guía didáctica 3D es completamente gratuita para todos los niños.</p>
 </section>
 
-<section class="section" id="bocaditos con amor">
+<section class="section" id="alimentacion">
     <h2>Bocaditos con Amor ⭐</h2>
-    <img src="img/plan.png" class="plan-img">
-    <div style="margin-top: 15px; text-align: center;">
-        <p>Ofrecemos un plan de alimentación saludable y delicioso, diseñado para nutrir a nuestros pequeños exploradores.</p>
-    </div>
+    <p>Plan de alimentación saludable diseñado para nutrir a nuestros pequeños exploradores.</p>
 </section>
 
 <section class="section services" id="servicios">
     <h2>Nuestros Servicios ⭐</h2>
     <div class="cards">
-        <div class="card" onclick="info('Danza: Expresamos emociones con música.')">
-            <img src="img/danza.png">
-            <h3>Danza</h3>
-            <p>Manejamos mejor las emociones a través de la música.</p>
-        </div>
-        <div class="card" onclick="info('Arte: Pintura y manualidades creativas.')">
-            <img src="img/arte.png">
-            <h3>Arte</h3>
-            <p>Ayudamos a desarrollar su creatividad e imaginación.</p>
-        </div>
-        <div class="card" onclick="info('Lectura: Cuentos y mucha imaginación.')">
-            <img src="img/lectura.png">
-            <h3>Lectura</h3>
-            <p>Fomentamos el amor por la lectura.</p>
-        </div>
-        <div class="card" onclick="info('Exploración: Descubrimos el mundo a nuestro alrededor.')">
-            <img src="img/exploracion.png">
-            <h3>Exploración</h3>
-            <p>Descubrimos el mundo a nuestro alrededor.</p>
-        </div>
-        <div class="card" onclick="info('Descanso: Tiempo para relajarse y recuperarse.')">
-            <img src="img/descanso.png">
-            <h3>Descanso</h3>
-            <p>Tiempo para relajarse y recuperarse.</p>
-        </div>
+        <div class="card" onclick="info('Danza: Expresamos emociones con música.')"><img src="img/danza.png"><h3>Danza</h3></div>
+        <div class="card" onclick="info('Arte: Pintura y manualidades.')"><img src="img/arte.png"><h3>Arte</h3></div>
+        <div class="card" onclick="info('Lectura: Cuentos e imaginación.')"><img src="img/lectura.png"><h3>Lectura</h3></div>
+        <div class="card" onclick="info('Exploración: Descubrimos el mundo.')"><img src="img/exploracion.png"><h3>Exploración</h3></div>
     </div>
 </section>
 
 <section class="section" id="info-importante">
-    <h2 style="text-align: center;">Información Importante ⭐</h2>
+    <h2 style="text-align:center;">Información Importante ⭐</h2>
     <div class="info-boxes">
-        <div class="box"><strong>Edad:</strong> 2 a 5 años 🧒🏻👧🏼</div>
-        <div class="box"><strong>Horario:</strong> 7am ⏰ 5pm</div>
-        <div class="box"><strong>Costos:</strong> 💰 $250,000 matrícula</div>
-        <div class="box"><strong>Inclusión:</strong> 📝 Programa integral</div>
+        <div class="box"><strong>Edad:</strong> 2 a 5 años</div>
+        <div class="box"><strong>Horario:</strong> 7am - 5pm</div>
+        <div class="box"><strong>Costos:</strong> $250.000</div>
     </div>
 </section>
 
 <section class="formulario section" id="formulario">
     <h2>Formulario de Inscripción</h2>
-    <p>Déjanos tus datos y nos comunicaremos contigo por WhatsApp.</p>
     <input id="nino" placeholder="Nombre del niño/a">
-    <input id="edad" placeholder="Edad del niño/a">
-    <input id="acudiente" placeholder="Nombre del acudiente">
-    <input id="parentesco" placeholder="Parentesco (opcional)">
-    <input id="correo" placeholder="Correo electrónico (opcional)">
-    <input id="cedula" placeholder="Número de cédula (opcional)">
     <input id="telefono" placeholder="Teléfono de contacto">
-    <textarea id="mensaje" placeholder="¿Tienes alguna observación médica o especial?"></textarea>
     <button class="btn-enviar" onclick="enviar()">Enviar solicitud</button>
 </section>
 
-<footer id="contacto">
-    <p><strong>Estrellitas Felices</strong></p>
-    <p> 👩🏼‍🏫 profe(Natalia) tel: +57 315 2103873</p>
-    <p> 👩🏼‍🏫 profe(Emely) tel: +57 313 7613261</p>
-    <p> 📩 estrellitasfelices@gmail.com</p>
-    <p> 🏡 Bogotá, Colombia calle 36 g sur # 11 a 66 barrio venecia</p>
+<footer id="contacto" style="background:#5fa8d3; color:white; text-align:center; padding:30px;">
+    <p>👩‍🏫 Profes Natalia y Emely | Bogotá, Colombia</p>
 </footer>
 
 <div class="whatsapp-btn" onclick="abrir()">
@@ -319,6 +199,7 @@
         if(elemento) {
             elemento.scrollIntoView({ behavior: 'smooth' });
         }
+        // CIERRE AUTOMÁTICO: Esto soluciona el problema en el celular
         menuItems.classList.remove('active');
     }
 
@@ -327,19 +208,9 @@
 
     function enviar() {
         let n = document.getElementById('nino').value;
-        let a = document.getElementById('acudiente').value;
         let t = document.getElementById('telefono').value;
-        let m = document.getElementById('mensaje').value;
-        let e = document.getElementById('edad').value;
-        let p = document.getElementById('parentesco').value;
-        
-        if (!n || !a || !t || !e) {
-            alert("Por favor completa los campos principales.");
-            return;
-        }
-
-        let mensajeWA = "Hola!%20Quiero%20inscribir%20a:%0A- Niño: " + n + "%0A- Edad: " + e + "%0A- Acudiente: " + a + "%0A- Parentesco: " + p + "%0A- Tel: " + t + "%0A- Obs: " + m;
-        window.open("https://wa.me/573137613261?text=" + mensajeWA);
+        if (!n || !t) { alert("Completa los datos"); return; }
+        window.open("https://wa.me/573137613261?text=Hola! Quiero inscribir a: " + n);
     }
 </script>
 
