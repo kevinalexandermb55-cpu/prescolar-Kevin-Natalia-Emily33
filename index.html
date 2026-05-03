@@ -177,6 +177,57 @@
             .header img { width: 100% !important; height: auto !important; }
             .formulario input, .formulario textarea { width: 100% !important; }
         }
+        /* Estilos para la sección del Himno */
+.reproductor-estelar {
+    background-color: #f6fcff; /* Negro profundo */
+    border: 2px solid #d4af37; /* Borde dorado */
+    border-radius: 15px;       /* Corregido: ahora sí se redondeará */
+    padding: 20px;
+    max-width: 580px;
+    margin: 0 auto 20px auto;
+    display: flex;             /* Esto alineará la imagen y el botón */
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+}
+.info-reproductor {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.icono-musica {
+    width: 60px;
+    height: auto;
+}
+
+.controles-audio audio {
+    width: 100%;
+   display: block;
+}
+
+/* Estilo del botón de la letra */
+.boton-letra {
+    background: transparent;
+    border: 1px solid #d4af37;
+    color: #d4af37;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    text-align: center;
+    list-style: none; /* Quita la flechita por defecto */
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.texto-letra {
+    color: rgb(26, 25, 25);
+    text-align: center;
+    margin-top: 15px;
+    line-height: 1.6;
+    font-style: italic;
+}
     </style>
 </head>
 <body>
@@ -192,10 +243,10 @@
     <button class="nav-item" onclick="toggleMenu(); ir('momentos')"><i class="fas fa-heart"></i> Momentos</button>
     <button class="nav-item" onclick="toggleMenu(); ir('gia 3D')"><i class="fas fa-rocket"></i> Guía 3D</button>
    <button class="nav-item" onclick="toggleMenu(); ir('bocaditos con amor')"><i class="fas fa-rocket"></i> Alimentación</button>
-   <button class="nav-item" onclick="toggleMenu(); ir('info-importante')"><i class="fas fa-rocket"></i> horario</button>
-   <button class="nav-item" onclick="toggleMenu(); ir('info-importante')"><i class="fas fa-rocket"></i> costos</button>
+   <button class="nav-item" onclick="toggleMenu(); ir('info-importante')"><i class="fas fa-clock"></i> horario</button>
+   <button class="nav-item" onclick="toggleMenu(); ir('info-importante')"><i class="fas fa-dollar-sign"></i> costos</button>
     <button class="nav-item" onclick="toggleMenu(); ir('formulario')"><i class="fas fa-edit"></i> Formulario</button>
-    <button class="nav-item" onclick="toggleMenu(); ir('contacto')"><i class="fas fa-edit"></i> contacto</button>
+    <button class="nav-item" onclick="toggleMenu(); ir('contacto')"><i class="fas fa-phone"></i> contacto</button>
 </nav>
 
 <header class="header">
@@ -209,6 +260,7 @@
         <button class="nav-item" onclick="window.scrollTo(0,0)"><i class="fas fa-home"></i> Inicio</button>
         <button class="nav-item" onclick="ir('servicios')"><i class="fas fa-star"></i> servicios</button>
         <button class="nav-item" onclick="ir('nosotros')"><i class="fas fa-users"></i> nosotros</button>
+        <button class="nav-item" onclick="ir('himno')"><i class="fas fa-music"></i> himno</button>
         <button class="nav-item" onclick="ir('momentos')"><i class="fas fa-heart"></i> Momentos</button>
         <button class="nav-item" onclick="ir('fuera de este mundo')"><i class="fas fa-rocket"></i> Guía 3D</button>
          <button class="nav-item" onclick="ir('bocaditos con amor')"><i class="fas fa-utensils"></i> Alimentación</button>
@@ -232,7 +284,46 @@
     <h2>¿Quiénes Somos? 🌟</h2>
     <p>Somos Natalia y Emely, dos educadoras apasionadas por el desarrollo infantil. Con más de 2 años de experiencia, hemos creado un espacio seguro y lleno de amor para que los niños crezcan felices y aprendan jugando.</p>
 </section>
+<section id="himno" class="section">
+    <h2 style="text-align: center;">Sinfonía Estelar ⭐</h2>
+    <p style="text-align: center; margin-bottom: 20px;">
+        ¡Escucha nuestro himno original! Una canción llena de magia y amor para nuestras estrellitas.
+    </p>
 
+    <div class="reproductor-estelar">
+        <div class="info-reproductor">
+            <img src="img/danza.png" alt="Lita" class="icono-musica">
+            
+            <div class="controles-audio">
+                <audio id="himnoEstelar">
+                    <source src="audio/himno.mp3" type="audio/mpeg">
+                    Tu navegador no soporta el audio.
+                </audio>
+                
+                <button onclick="togglePlay()" id="btnPlay" class="boton-reproducir">
+                    ▶️ REPRODUCIR HIMNO
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+function togglePlay() {
+    var audio = document.getElementById("himnoEstelar");
+    var btn = document.getElementById("btnPlay");
+    if (audio.paused) {
+        audio.play();
+        btn.innerHTML = "⏸️ PAUSAR HIMNO";
+    } else {
+        audio.pause();
+        btn.innerHTML = "▶️ REPRODUCIR HIMNO";
+    }
+}
+</script>
+            </div>
+        </details>
+    </div>
+</section>
 <section class="section" id="momentos">
     <h2>Nuestros Momentos ⭐</h2>
     <img src="img/momentos.png" class="momentos-img">
