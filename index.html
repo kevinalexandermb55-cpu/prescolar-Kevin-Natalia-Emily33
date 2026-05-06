@@ -228,6 +228,30 @@
     margin-top: 15px;
     line-height: 1.6;
     font-style: italic;
+    /* Ajustes para la sección de Filosofía */
+#Nuestra-Identidad {
+    padding: 40px 10% !important; /* Da aire a los lados para que no toque los bordes */
+}
+
+#Nuestra-Identidad p {
+    margin-bottom: 20px;
+    line-height: 1.7; /* Hace que el texto no se vea amontonado */
+}
+
+#Nuestra-Identidad h3 {
+    margin-top: 30px;
+    color: #5fa8d3; /* Usa el azul de tu botón para resaltar el título */
+}
+
+#Nuestra-Identidad ul {
+    list-style: none; /* Quita los puntos de la lista */
+    padding: 0;
+}
+
+#Nuestra-Identidad li {
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+}
 }
     </style>
 </head>
@@ -240,6 +264,7 @@
 <nav class="nav-mobile" id="navMobile">
     <button class="nav-item" onclick="toggleMenu(); window.scrollTo(0,0)"><i class="fas fa-home"></i> Inicio</button>
     <button class="nav-item" onclick="toggleMenu(); ir('nosotros')"><i class="fas fa-users"></i> nosotros</button>
+    <button class="nav-item" onclick="toggleMenu(); ir(' Nuestra-Identidad')"><i class="fas fa-heart"></i> Nuestra-Identidad</button>
     <button class="nav-item" onclick="toggleMenu(); ir('himno')"><i class="fas fa-music"></i> himno</button>
     <button class="nav-item" onclick="toggleMenu(); ir('momentos')"><i class="fas fa-heart"></i> Momentos</button>
     <button class="nav-item" onclick="toggleMenu(); ir('gia 3D')"><i class="fas fa-rocket"></i> Guía 3D</button>
@@ -262,6 +287,7 @@
     <div class="navbar-nav">
         <button class="nav-item" onclick="window.scrollTo(0,0)"><i class="fas fa-home"></i> Inicio</button>
         <button class="nav-item" onclick="ir('nosotros')"><i class="fas fa-users"></i> nosotros</button>
+        <button class="nav-item" onclick="ir('Nuestra-Identidad')"><i class="fas fa-heart"></i>Nuestra-Identidad</button>
         <button class="nav-item" onclick="ir('himno')"><i class="fas fa-music"></i> himno</button>
         <button class="nav-item" onclick="ir('momentos')"><i class="fas fa-heart"></i> momentos</button>
         <button class="nav-item" onclick="ir('fuera de este mundo')"><i class="fas fa-rocket"></i> Guía 3D</button>
@@ -277,7 +303,7 @@
 
 <div class="section hero">
     <div class="hero-text">
-        <h2>Bienvenidos a Estrellitas Felices ⭐</h2>
+        <h2>Bienvenidos a Estrellitas Felices⭐</h2>
         <p>Un lugar donde la magia y el aprendizaje se encuentran. Cuidamos a cada niño como si fuera parte de nuestra familia.</p>
         <button onclick="ir('formulario')">¡Inscribirse ahora!</button>
     </div>
@@ -287,6 +313,21 @@
 <section class="section" id="nosotros">
     <h2>¿Quiénes Somos? 🌟</h2>
     <p>Somos Natalia y Emely, dos educadoras apasionadas por el desarrollo infantil. Con más de 2 años de experiencia, hemos creado un espacio seguro y lleno de amor para que los niños crezcan felices y aprendan jugando.</p>
+</section>
+<section class="section" id="Nuestra-Identidad">
+    <h2>Nuestra Filosofía 🌟</h2>
+
+    <p><strong>Misión:</strong> Inspirar a cada niño a ser el protagonista de su propia aventura, fomentando el descubrimiento a través del juego y el amor.</p>
+    
+    <p><strong>Visión:</strong> Ser el jardín infantil líder en innovación pedagógica e inclusión, potenciando talentos únicos con tecnología y excelencia.</p>
+
+    <h3>Nuestros Valores</h3>
+    <ul style="list-style: none; padding: 0;">
+        <li><strong>❤️ Amor:</strong> Nuestro motor para educar.</li>
+        <li><strong>⭐ Inclusión:</strong> Todos los talentos brillan aquí.</li>
+        <li><strong>🛡️ Seguridad:</strong> Tu tranquilidad es nuestra prioridad.</li>
+        <li><strong>😊 Alegría:</strong> Convertimos el aprendizaje en felicidad.</li>
+    </ul>
 </section>
 <section id="himno" class="section">
     <h2 style="text-align: center;">Sinfonía Estelar ⭐</h2>
@@ -329,7 +370,7 @@ function togglePlay() {
     </div>
 </section>
 <section class="section" id="momentos">
-    <h2>Nuestros Momentos ⭐</h2>
+    <h2>Nuestros Momentos⭐</h2>
     <img src="img/momentos.png" class="momentos-img">
     <div style="margin-top: 15px; text-align: center;">
         <p>"Cada día en Estrellitas Felices es una nueva aventura. Aquí capturamos las sonrisas, los descubrimientos y esos pequeños grandes logros que hacen que el aprendizaje sea inolvidable. ¡Mira cómo brillan nuestros pequeños!"</p>
@@ -350,7 +391,7 @@ Queremos que todos los niños empiecen su aventura hoy mismo, por eso nuestra Gu
 </section>
 
 <section class="section" id="bocaditos con amor">
-    <h2>Bocaditos con Amor ⭐</h2>
+    <h2>Bocaditos con Amor⭐</h2>
     <img src="img/plan.png" class="plan-img">
     <div style="margin-top: 15px; text-align: center;">
         <p>"En Estrellitas Felices, entendemos que una buena nutrición es el combustible para grandes aventuras. Nuestros menús están diseñados para aportar la energía necesaria en cada etapa del crecimiento, utilizando ingredientes frescos y balanceados." </p>
@@ -358,7 +399,7 @@ Queremos que todos los niños empiecen su aventura hoy mismo, por eso nuestra Gu
 </section>
 
 <section class="section services" id="servicios">
-    <h2>Nuestros Servicios ⭐</h2>
+    <h2>Nuestros Servicios⭐</h2>
     <div class="cards">
         <div class="card" onclick="info('Danza: Expresamos emociones con música.')">
             <img src="img/danza.png">
@@ -389,7 +430,7 @@ Queremos que todos los niños empiecen su aventura hoy mismo, por eso nuestra Gu
 </section>
 
 <section class="section" id="Plan Pedagógico">
-    <h2>Plan Pedagógico ⭐</h2>
+    <h2>Plan Pedagógico⭐</h2>
     <img src="img/programas.png" class="programas-img">
     <div style="margin-top: 15px; text-align: center;">
         <p>"En Estrellitas Felices, cada etapa cuenta. Nuestra ruta pedagógica está diseñada científicamente para respetar el ritmo de desarrollo de cada niño, garantizando que su aprendizaje sea tan único como su sonrisa."⭐</p>
