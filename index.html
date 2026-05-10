@@ -138,8 +138,8 @@
             background: white;
             border-radius: 20px;
             padding: 15px;
-            width: 180px;
-            flex-shrink: 0; /* Evita que las tarjetas se encojan */
+            width: 155px;
+            flex-shrink: 1; /* Evita que las tarjetas se encojan */
             scroll-snap-align: center; /* Centra la tarjeta al deslizar */
             cursor: pointer;
             box-shadow: 0 6px 15px rgba(0,0,0,0.1);
@@ -419,12 +419,17 @@ Queremos que todos los niños empiecen su aventura hoy mismo, por eso nuestra Gu
             <h3>Exploración</h3>
             <p>Descubrimos el mundo a nuestro alrededor.</p>
         </div>
-        <div class="card" onclick="info('Descanso: Tiempo para relajarse y recuperarse.')">
+       <div class="card" onclick="info('Nutrición: Fomentamos hábitos saludables con alimentos balanceados.')">
+    <img src="img/bocadin.png">
+    <h3>Alimentación</h3>
+    <p>Energía y salud con nuestra estrategia de nutrición.</p>
+</div>
+         <div class="card" onclick="info('Descanso: Tiempo para relajarse y recuperarse.')">
             <img src="img/descanso.png">
             <h3>Descanso</h3>
             <p>Tiempo para relajarse y recuperarse.</p>
         </div>
-    </div>
+    
 </section>
 
 <section class="section" id="Plan Pedagógico">
