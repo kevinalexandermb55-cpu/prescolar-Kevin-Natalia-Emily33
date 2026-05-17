@@ -393,7 +393,36 @@ Queremos que todos los niños empiecen su aventura hoy mismo, por eso nuestra Gu
     <img src="img/cuentos.png" class="cuentos-img">
     <div style="margin-top: 15px; text-align: center;">
         <p>¡Explora nuestro universo donde aprenderás con cuentos mágicos por medio de aventuras llenas de valores y diversión!🚀</p>
+    <button onclick="abrirCuento()" style="background-color: #3b82f6; color: white; border: none; padding: 12px 24px; font-size: 15px; font-weight: bold; border-radius: 8px; cursor: pointer; width: 100%; max-width: 220px; margin-top: 15px; box-shadow: 0 4px 10px rgba(59,130,246,0.2); font-family: sans-serif; transition: background 0.3s;">
+                📖 Leer Cuento de Lita
+            </button>
+        </div>
     </div>
+</section>
+
+<div id="modal-cuento" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85); z-index: 10000; justify-content: center; align-items: center; padding: 15px; box-sizing: border-box;">
+    <div style="background-color: #ffffff; width: 100%; max-width: 520px; border-radius: 20px; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.3); font-family: sans-serif; position: relative;">
+        
+        <div style="background-color: #3b82f6; color: white; padding: 15px; text-align: center; position: relative;">
+            <span id="titulo-pagina" style="font-weight: bold; font-size: 16px;">Portada</span>
+            <span onclick="cerrarCuento()" style="position: absolute; top: 10px; right: 20px; font-size: 26px; font-weight: bold; cursor: pointer; opacity: 0.9;">&times;</span>
+        </div>
+
+        <div style="padding: 15px; text-align: center; background-color: #f8fafc; display: flex; justify-content: center; align-items: center; min-height: 380px;">
+            <img id="imagen-cuento" src="img/portada.png" alt="Página del cuento" style="width: 100%; max-height: 440px; object-fit: contain; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+        </div>
+
+        <div style="background-color: #ffffff; padding: 15px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #e2e8f0;">
+            <button onclick="paginaAnterior()" style="background-color: #e2e8f0; color: #334155; border: none; padding: 10px 18px; font-weight: bold; border-radius: 8px; cursor: pointer;">
+                ⬅️ Anterior
+            </button>
+            <span id="indicador-pagina" style="font-weight: bold; color: #64748b; font-size: 14px;">Portada</span>
+            <button onclick="paginaSiguiente()" style="background-color: #3b82f6; color: white; border: none; padding: 10px 18px; font-weight: bold; border-radius: 8px; cursor: pointer;">
+                Siguiente ➡️
+            </button>
+        </div>
+    </div>
+</div>
 </section>
 <section class="section" id="bocaditos con amor">
     <h2>Bocaditos con Amor⭐</h2>
@@ -524,6 +553,66 @@ Queremos que todos los niños empiecen su aventura hoy mismo, por eso nuestra Gu
         let mensajeWA = "Hola!%20Quiero%20inscribir%20a:%0A- Niño: " + n + "%0A- Edad: " + e + "%0A- Acudiente: " + a + "%0A- Tel: " + t;
         window.open("https://wa.me/573137613261?text=" + mensajeWA);
     }
+    // LISTADO ORDENADO DE LAS IMÁGENES DEL CUENTO DE LITA
+const paginasCuento = [
+    { ruta: "img/portada.png", titulo: "Portada Oficial" },
+    { ruta: "img/tren.png", titulo: "Página 1 - El tren de colores" },
+    { ruta: "img/estelar.png", titulo: "Página 2 - La Aventura del equipo estelar" },
+    { ruta: "img/valiente.png", titulo: "Página 3 - El valor de la valentía" },
+    { ruta: "img/palabras.png", titulo: "Página 4 - Las palabras mágicas" },
+    { ruta: "img/honestidad.png", titulo: "Página 5 - La honestidad" },
+    { ruta: "img/emociones.png", titulo: "Página 6 - Expresando emociones" },
+    { ruta: "img/amistad.png", titulo: "Página 7 - La amistad" },
+    { ruta: "img/sueños.png", titulo: "Página 8 - La aventura de los sueños" },
+    { ruta: "img/responsabilidad.png", titulo: "Página 9 - La responsabilidad" },
+    { ruta: "img/dientes.png", titulo: "Página 10 - El brillo especial" },
+    { ruta: "img/cierre.png", titulo: "Fin de la Aventura" }
+];
+
+let indiceActual = 0;
+
+function abrirCuento() {
+    indiceActual = 0; // Al abrir, siempre inicia en la portada
+    actualizarVisor();
+    document.getElementById('modal-cuento').style.display = 'flex';
+}
+
+function cerrarCuento() {
+    document.getElementById('modal-cuento').style.display = 'none';
+}
+
+function actualizarVisor() {
+    const imagen = document.getElementById('imagen-cuento');
+    const titulo = document.getElementById('titulo-pagina');
+    const indicador = document.getElementById('indicador-pagina');
+
+    imagen.src = paginasCuento[indiceActual].ruta;
+    titulo.innerText = paginasCuento[indiceActual].titulo;
+    
+    if (indiceActual === 0) {
+        indicador.innerText = "Portada";
+    } else if (indiceActual === paginasCuento.length - 1) {
+        indicador.innerText = "Cierre";
+    } else {
+        indicador.innerText = `Pág. ${indiceActual} / 10`;
+    }
+}
+
+function paginaSiguiente() {
+    if (indiceActual < paginasCuento.length - 1) {
+        indiceActual++;
+        actualizarVisor();
+    } else {
+        cerrarCuento(); // Si le dan siguiente en la última hoja, se cierra solo
+    }
+}
+
+function paginaAnterior() {
+    if (indiceActual > 0) {
+        indiceActual--;
+        actualizarVisor();
+    }
+}
 </script>
 
 </body>
