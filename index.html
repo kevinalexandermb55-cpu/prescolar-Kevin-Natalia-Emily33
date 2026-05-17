@@ -466,10 +466,20 @@ Queremos que todos los niños empiecen su aventura hoy mismo, por eso nuestra Gu
     <input id="acudiente" placeholder="Nombre del acudiente">
     <input id="parentesco"placeholder="parentesco">
     <input id="telefono" placeholder="Teléfono de contacto">
-    <textarea id="mensaje" placeholder="¿Tienes alguna observación médica o especial?"></textarea>
-    <button class="btn-enviar" onclick="enviar()">Enviar solicitud</button>
-</section>
+   <textarea id="mensaje" placeholder="¿Tienes alguna observación médica o especial?"></textarea>
 
+        <div style="margin: 20px 0; text-align: left; width: 100%;">
+            <label for="whatsapp-team" style="font-weight: bold; display: block; margin-bottom: 8px; color: #333; font-size: 14px; font-family: sans-serif;">
+                ¿Con qué docente deseas hablar?
+            </label>
+            <select id="whatsapp-team" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ccc; font-size: 14px; background-color: #fff; font-family: sans-serif; outline: none; cursor: pointer; box-sizing: border-box;">
+                <option value="https://wa.link/ixj8s1">Profe Natalia (Preescolar)</option>
+                <option value="https://wa.me/573137613261?text=Hola!%20Quiero%20más%20información%20sobre%20el%20Liceo%20Infantil%20Estrellitas%20Felices">Profe Emily (Estimulación Temprana)</option>
+            </select>
+        </div>
+
+        <button class="btn-enviar" onclick="enviar()">Enviar solicitud</button>
+    </section>
 <footer id="contacto">
         <div class="info-footer">
         <p><strong>Estrellitas Felices</strong></p>
@@ -477,6 +487,7 @@ Queremos que todos los niños empiecen su aventura hoy mismo, por eso nuestra Gu
         <p>👩‍🏫 Profe Emely: +57 313 7613261</p>
         <p>📍 Bogotá, Colombia - Barrio Venecia</p>
     </div>
+</div>
 </footer>
 <div class="whatsapp-btn" onclick="abrir()">
     <i class="fab fa-whatsapp"></i>
@@ -494,8 +505,10 @@ Queremos que todos los niños empiecen su aventura hoy mismo, por eso nuestra Gu
         }
     }
 
-    function info(mensaje) { alert(mensaje); }
-    function abrir() { window.open("https://wa.link/ixj8s1"); }
+    function abrir() { 
+    const linkSeleccionado = document.getElementById('whatsapp-team').value;
+    window.open(linkSeleccionado); 
+}
 
     function enviar() {
         let n = document.getElementById('nino').value;
