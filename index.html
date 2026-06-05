@@ -432,7 +432,6 @@ Queremos que todos los niños empiecen su aventura hoy mismo, por eso nuestra Gu
     </div>
 </section>
 
-
 <section class="section services" id="servicios">
     <h2>Nuestros Servicios⭐</h2>
     <div class="cards">
@@ -503,8 +502,8 @@ Queremos que todos los niños empiecen su aventura hoy mismo, por eso nuestra Gu
                 ¿Con qué docente deseas hablar?
             </label>
             <select id="whatsapp-team" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ccc; font-size: 14px; background-color: #fff; font-family: sans-serif; outline: none; cursor: pointer; box-sizing: border-box;">
-                <option value="https://wa.me/573152103873?text=Hola!%20Quiero%20más%20información%20sobre%20el%20jardin%20Infantil%20Estrellitas%20Felices">Profe Natalia (Preescolar)</option>
-                <option value="https://wa.me/573137613261?text=Hola!%20Quiero%20más%20información%20sobre%20el%20jardin%20Infantil%20Estrellitas%20Felices">Profe Emily (Estimulación Temprana)</option>
+                <option value="https://wa.link/ixj8s1">Profe Natalia (Preescolar)</option>
+                <option value="https://wa.me/573137613261?text=Hola!%20Quiero%20más%20información%20sobre%20el%20Liceo%20Infantil%20Estrellitas%20Felices">Profe Emily (Estimulación Temprana)</option>
             </select>
         </div>
 
@@ -540,29 +539,20 @@ Queremos que todos los niños empiecen su aventura hoy mismo, por eso nuestra Gu
     window.open(linkSeleccionado); 
 }
 
-function enviar() {
-    let n = document.getElementById('nino').value;
-    let a = document.getElementById('acudiente').value;
-    let t = document.getElementById('telefono').value;
-    let e = document.getElementById('edad').value;
+    function enviar() {
+        let n = document.getElementById('nino').value;
+        let a = document.getElementById('acudiente').value;
+        let t = document.getElementById('telefono').value;
+        let e = document.getElementById('edad').value;
+        
+        if (!n || !a || !t || !e) {
+            alert("Por favor completa los campos principales.");
+            return;
+        }
 
-    // Captura el enlace del docente seleccionado en el <select>
-    let urlDestino = document.getElementById('whatsapp-team').value;
-
-    if (!n || !a || !t || !e) {
-        alert("Por favor completa los campos principales.");
-        return;
-    }
-
-    let mensajeWA = "Hola!%20Quiero%20inscribir%20a:%0A- Niño: " + n + "%0A- Edad: " + e + "%0A- Acudiente: " + a + "%0A- Teléfono: " + t;
-    
-    // Asegúrate de que urlDestino termine correctamente antes de añadir el parámetro text
-    // Si urlDestino ya tiene parámetros, deberías usar '&', si no, '?'.
-    window.open(urlDestino + "&text=" + mensajeWA);
-}
         let mensajeWA = "Hola!%20Quiero%20inscribir%20a:%0A- Niño: " + n + "%0A- Edad: " + e + "%0A- Acudiente: " + a + "%0A- Tel: " + t;
-        window.open(urlDestino + "&text=" + mensajeWA);
-
+        window.open("https://wa.me/573137613261?text=" + mensajeWA);
+    }
     // LISTADO ORDENADO DE LAS IMÁGENES DEL CUENTO DE LITA
 const paginasCuento = [
     { ruta: "img/portada.png", titulo: "Portada Oficial" },
