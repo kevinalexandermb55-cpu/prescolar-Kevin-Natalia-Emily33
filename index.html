@@ -539,6 +539,13 @@ Queremos que todos los niños empiecen su aventura hoy mismo, por eso nuestra Gu
     const linkSeleccionado = document.getElementById('whatsapp-team').value;
     window.open(linkSeleccionado); 
 }
+    // Captura el enlace del docente seleccionado en el <select>
+    let urlDestino = document.getElementById('whatsapp-team').value;
+    
+    if (!n || !a || !t || !e) {
+        alert("Por favor completa los campos principales.");
+        return;
+    }
 function enviar() {
     let n = document.getElementById('nino').value;
     let a = document.getElementById('acudiente').value;
