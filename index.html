@@ -545,18 +545,24 @@ function enviar() {
     let a = document.getElementById('acudiente').value;
     let t = document.getElementById('telefono').value;
     let e = document.getElementById('edad').value;
-    
+
     // Captura el enlace del docente seleccionado en el <select>
     let urlDestino = document.getElementById('whatsapp-team').value;
-    
+
     if (!n || !a || !t || !e) {
         alert("Por favor completa los campos principales.");
         return;
     }
 
+    let mensajeWA = "Hola!%20Quiero%20inscribir%20a:%0A- Niño: " + n + "%0A- Edad: " + e + "%0A- Acudiente: " + a + "%0A- Teléfono: " + t;
+    
+    // Asegúrate de que urlDestino termine correctamente antes de añadir el parámetro text
+    // Si urlDestino ya tiene parámetros, deberías usar '&', si no, '?'.
+    window.open(urlDestino + "&text=" + mensajeWA);
+}
         let mensajeWA = "Hola!%20Quiero%20inscribir%20a:%0A- Niño: " + n + "%0A- Edad: " + e + "%0A- Acudiente: " + a + "%0A- Tel: " + t;
         window.open(urlDestino + "&text=" + mensajeWA);
-    }
+
     // LISTADO ORDENADO DE LAS IMÁGENES DEL CUENTO DE LITA
 const paginasCuento = [
     { ruta: "img/portada.png", titulo: "Portada Oficial" },
