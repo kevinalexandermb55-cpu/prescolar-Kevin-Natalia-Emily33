@@ -503,7 +503,7 @@ Queremos que todos los niños empiecen su aventura hoy mismo, por eso nuestra Gu
             </label>
             <select id="whatsapp-team" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ccc; font-size: 14px; background-color: #fff; font-family: sans-serif; outline: none; cursor: pointer; box-sizing: border-box;">
                 <option value="https://wa.me/573152103873">Profe Natalia (Preescolar)</option>
-                <option value="https://wa.me/573137613261">Profe Emily (Estimulación Temprana)</option>
+                <option value="https://wa.me/573137613261" >Profe Emily (Estimulación Temprana)</option>
             </select>
         </div>
 
@@ -518,7 +518,7 @@ Queremos que todos los niños empiecen su aventura hoy mismo, por eso nuestra Gu
     </div>
 </div>
 </footer>
-<div class="whatsapp-btn" onclick="abrir()">
+<div class="whatsapp-btn" onclick="abrirFlotante()">
     <i class="fab fa-whatsapp"></i>
 </div>
 
@@ -533,6 +533,15 @@ Queremos que todos los niños empiecen su aventura hoy mismo, por eso nuestra Gu
             elemento.scrollIntoView({ behavior: 'smooth' });
         }
     }
+    function abrirFlotante() { 
+    // Número fijo de la profe Natalia
+    const numeroNatalia = "573152103873";
+    // Tu mensaje personalizado
+    const mensaje = "¡Hola! Estoy visitando la web de Estrellitas Felices y me gustaría recibir más información.";
+    
+    // Abrimos el chat con Natalia y el mensaje
+    window.open("https://wa.me/" + numeroNatalia + "?text=" + encodeURIComponent(mensaje), "_blank"); 
+}
 
     function abrir() { 
     const linkSeleccionado = document.getElementById('whatsapp-team').value;
